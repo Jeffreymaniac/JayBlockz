@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <title>JayBlockz</title>
+    <script type="module" src="https://cdn.jsdelivr.net/npm/p5@1.6.0/lib/p5.js"></script>
+
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="styles.css" />
+    <script type="module" src="script.js"></script>
+
+  </head>
+  <body data-bs-theme="dark" class="vh-100">
+    <div class="offcanvas offcanvas-top" id="navthing">
+      <div class="offcanvas-header">
+        <h1 class="offcanvas-title">Heading</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+      </div>
+      <div class="offcanvas-body">
+        <p>Some text lorem ipsum.</p>
+        <button class="btn btn-secondary" type="button">A Button</button>
+      </div>
+    </div>
+    <div class="bg-success  position-absolute top ">
+<div class="dropdown dropdown-menu-start d-inline-block">
+  <button type="button" class="btn btn-text dropdown-toggle" data-bs-toggle="dropdown">JayBlockz</button>
+  <ul class="dropdown-menu">
+    <li><a class="dropdown-item" href="#">Login</a></li>
+    <li><a class="dropdown-item" href="#">Signup</a></li>
+    <li><a class="dropdown-item" href="#" data-bs-toggle="offcanvas" data-bs-target="#navthing">New Project</a></li>
+  </ul>
+</div>  <button id="runProjectBTN" class="d-inline-block btn btn-primary">Run code</button>
+    </div>
+      <div id="container-et" class="vh-100 container-fluid">     
+        <div class="row vh-100">
+          <div class="col-sm-3 bg-warning bg-gradient" id="theToolbar" ondrop="delTB(event)" ondragover="allowTBDrop(event,'1')">
+            <br><br>
+
+          </div>
+
+          <div id="theWorkspace" class="col-sm-9 dropzone vh-100" style="background: linear-gradient(to top right, #6666ff 6%, #99ccff 86%)"  ondrop="dropFromTB(event)" ondragover="allowTBDrop(event)">
+<span style="color:black">Workspace</span>
+            </div>
+        </div>
+
+        <div class="position-absolute bottom-0 end-0">  
+          <div class="toast show">
+          <div class="toast-header">
+            <strong class="me-auto">Notification</strong>
+            <button type="button" class="btn-close" data-bs-dismiss="toast"></button>
+          </div>
+          <div class="toast-body">
+            <p>Some text inside the toast body</p>
+          </div>
+        </div>
+      </div>
+
+      <div id="blockCTXmenu">
+        <a onclick="deleteLastSelBlock()">
+          <i class="fa fa-close"></i> Delete this block (or last selected block)
+        </a>
+        <a href="#">
+          <img src="http://puu.sh/nr5Z6/4360098fc1.png" /> SNTX <span>Ctrl + ?!</span>
+        </a>
+        <hr />
+        <a href="#">
+          <i class="fa fa-fort-awesome"></i> Fort Awesome <span>Ctrl + ?!</span>
+        </a>
+        <a href="#">
+          <i class="fa fa-flag"></i> Font Awesome <span>Ctrl + ?!</span>
+        </a>
+      </div>
+      <!--
+      <script>
+
+function dragFromTB(ev) {
+  dragged = ev.target;
+  ev.dataTransfer.setData("text/plain", ev.target.id);
+  ev.dataTransfer.dropEffect = "copy";
+
+}
+function allowTBDrop(ev, del) {
+  ev.preventDefault();
+  if(!del /*&& !ev.classList.contains('draggablePBlock')*/) ev.dataTransfer.dropEffect = "move";
+}
+function dropFromTB(ev) {
+  ev.preventDefault();
+  //dragged.parentNode.removeChild(dragged);
+  const clone = dragged.cloneNode(true);
+  
+  clone.classList.remove('draggableBlock');
+
+
+  clone.classList.add('draggablePBlock');
+  //alert(1)
+  clone.removeAttribute('ondragstart');
+  //clone.removeAttribute('draggable');
+
+  document.getElementById('theWorkspace').appendChild(clone);
+  if(window.unsaved==false) window.unsaved=true
+
+}
+function delTB(ev) {
+  ev.preventDefault();
+ev.remove();
+}
+function deleteLastSelBlock() {
+ev.remove();
+}
+
+        </script>-->
+        <script>
+          p5.disableFriendlyErrors = true;
+
+                  function setup() {
+         
+         // Canvas size
+         createCanvas(windowWidth, windowHeight);
+         window.canvas = drawingContext;
+     }
+        
+     function draw() {
+         background(window.canvasColor || 'red');
+
+         fill(0)
+  text(`${mouseX}, ${mouseY}`, 20, 20);
+     }
+          </script>
+	<script src="https://sortablejs.github.io/Sortable/Sortable.js"></script>
+  </body>
+</html>
